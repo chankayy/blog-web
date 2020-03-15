@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.franxx.blog.mapper.TipsMapper" >
+  <resultMap id="BaseResultMap" type="top.franxx.blog.pojo.Tips" >
+    <id column="tips_id" property="tipsId" jdbcType="INTEGER" />
+    <result column="tip_content" property="tipContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    tips_id, tip_content
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.franxx.blog.pojo.TipsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tips
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tips
+    where tips_id = #{tipsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tips
+    where tips_id = #{tipsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.franxx.blog.pojo.TipsExample" >
+    delete from tips
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.franxx.blog.pojo.Tips" >
+    insert into tips (tips_id, tip_content)
+    values (#{tipsId,jdbcType=INTEGER}, #{tipContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.franxx.blog.pojo.Tips" >
+    insert into tips
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tipsId != null" >
+        tips_id,
+      </if>
+      <if test="tipContent != null" >
+        tip_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tipsId != null" >
+        #{tipsId,jdbcType=INTEGER},
+      </if>
+      <if test="tipContent != null" >
+        #{tipContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.franxx.blog.pojo.TipsExample" resultType="java.lang.Integer" >
+    select count(*) from tips
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tips
+    <set >
+      <if test="record.tipsId != null" >
+        tips_id = #{record.tipsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tipContent != null" >
+        tip_content = #{record.tipContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tips
+    set tips_id = #{record.tipsId,jdbcType=INTEGER},
+      tip_content = #{record.tipContent,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.franxx.blog.pojo.Tips" >
+    update tips
+    <set >
+      <if test="tipContent != null" >
+        tip_content = #{tipContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tips_id = #{tipsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.franxx.blog.pojo.Tips" >
+    update tips
+    set tip_content = #{tipContent,jdbcType=VARCHAR}
+    where tips_id = #{tipsId,jdbcType=INTEGER}
+  </update>
+</mapper>

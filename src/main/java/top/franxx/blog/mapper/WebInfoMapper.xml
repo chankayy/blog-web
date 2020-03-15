@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.franxx.blog.mapper.WebInfoMapper" >
+  <resultMap id="BaseResultMap" type="top.franxx.blog.pojo.WebInfo" >
+    <result column="web_name" property="webName" jdbcType="VARCHAR" />
+    <result column="copyright" property="copyright" jdbcType="VARCHAR" />
+    <result column="powerby" property="powerby" jdbcType="VARCHAR" />
+    <result column="record" property="record" jdbcType="VARCHAR" />
+    <result column="default_img" property="defaultImg" jdbcType="VARCHAR" />
+    <result column="web_img" property="webImg" jdbcType="VARCHAR" />
+    <result column="web_url" property="webUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="top.franxx.blog.pojo.WebInfo" extends="BaseResultMap" >
+    <result column="intro" property="intro" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    web_name, copyright, powerby, record, default_img, web_img, web_url
+  </sql>
+  <sql id="Blob_Column_List" >
+    intro
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="top.franxx.blog.pojo.WebInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from web_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.franxx.blog.pojo.WebInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from web_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="top.franxx.blog.pojo.WebInfoExample" >
+    delete from web_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.franxx.blog.pojo.WebInfo" >
+    insert into web_info (web_name, copyright, powerby, 
+      record, default_img, web_img, 
+      web_url, intro)
+    values (#{webName,jdbcType=VARCHAR}, #{copyright,jdbcType=VARCHAR}, #{powerby,jdbcType=VARCHAR}, 
+      #{record,jdbcType=VARCHAR}, #{defaultImg,jdbcType=VARCHAR}, #{webImg,jdbcType=VARCHAR}, 
+      #{webUrl,jdbcType=VARCHAR}, #{intro,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.franxx.blog.pojo.WebInfo" >
+    insert into web_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="webName != null" >
+        web_name,
+      </if>
+      <if test="copyright != null" >
+        copyright,
+      </if>
+      <if test="powerby != null" >
+        powerby,
+      </if>
+      <if test="record != null" >
+        record,
+      </if>
+      <if test="defaultImg != null" >
+        default_img,
+      </if>
+      <if test="webImg != null" >
+        web_img,
+      </if>
+      <if test="webUrl != null" >
+        web_url,
+      </if>
+      <if test="intro != null" >
+        intro,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="webName != null" >
+        #{webName,jdbcType=VARCHAR},
+      </if>
+      <if test="copyright != null" >
+        #{copyright,jdbcType=VARCHAR},
+      </if>
+      <if test="powerby != null" >
+        #{powerby,jdbcType=VARCHAR},
+      </if>
+      <if test="record != null" >
+        #{record,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultImg != null" >
+        #{defaultImg,jdbcType=VARCHAR},
+      </if>
+      <if test="webImg != null" >
+        #{webImg,jdbcType=VARCHAR},
+      </if>
+      <if test="webUrl != null" >
+        #{webUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null" >
+        #{intro,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.franxx.blog.pojo.WebInfoExample" resultType="java.lang.Integer" >
+    select count(*) from web_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update web_info
+    <set >
+      <if test="record.webName != null" >
+        web_name = #{record.webName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.copyright != null" >
+        copyright = #{record.copyright,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powerby != null" >
+        powerby = #{record.powerby,jdbcType=VARCHAR},
+      </if>
+      <if test="record.record != null" >
+        record = #{record.record,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultImg != null" >
+        default_img = #{record.defaultImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webImg != null" >
+        web_img = #{record.webImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webUrl != null" >
+        web_url = #{record.webUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intro != null" >
+        intro = #{record.intro,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update web_info
+    set web_name = #{record.webName,jdbcType=VARCHAR},
+      copyright = #{record.copyright,jdbcType=VARCHAR},
+      powerby = #{record.powerby,jdbcType=VARCHAR},
+      record = #{record.record,jdbcType=VARCHAR},
+      default_img = #{record.defaultImg,jdbcType=VARCHAR},
+      web_img = #{record.webImg,jdbcType=VARCHAR},
+      web_url = #{record.webUrl,jdbcType=VARCHAR},
+      intro = #{record.intro,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update web_info
+    set web_name = #{record.webName,jdbcType=VARCHAR},
+      copyright = #{record.copyright,jdbcType=VARCHAR},
+      powerby = #{record.powerby,jdbcType=VARCHAR},
+      record = #{record.record,jdbcType=VARCHAR},
+      default_img = #{record.defaultImg,jdbcType=VARCHAR},
+      web_img = #{record.webImg,jdbcType=VARCHAR},
+      web_url = #{record.webUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
