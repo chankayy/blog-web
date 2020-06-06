@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>FRANXX - 一个JAVA程序员的个人博客网站</title>
+    <title>FRANXX - 一个Golang程序员的Java个人博客网站..</title>
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <!--Layui-->
     <link href="../layui/css/layui.css" rel="stylesheet" />
