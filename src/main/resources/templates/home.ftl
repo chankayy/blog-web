@@ -132,6 +132,10 @@
                     <div class="blog-module shadow">
                         <div class="blog-module-title">一路走来</div>
                         <dl class="footprint">
+                            <dt>2020年5月26日</dt>
+                            <dd>k8s半自动化集成部署！</dd>
+                            <dt>2020年2月26日</dt>
+                            <dd>博客docker化！</dd>
                             <dt>2019年07月26日</dt>
                             <dd>基本功能完成，正式上线！</dd>
                             <dt>2019年07月18日</dt>
