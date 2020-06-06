@@ -149,10 +149,8 @@
                     <div class="blog-module shadow">
                         <div class="blog-module-title">后台记录</div>
                         <dl class="footprint">
-                            <dt>2019年07月26日</dt>
-                            <dd>基本功能完成，正式上线！</dd>
-                            <dt>2019年07月26日</dt>
-                            <dd>基本功能完成，正式上线！</dd>
+                            <dt>2020年06月06日</dt>
+                            <dd>全自动构建部署好爽！😝</dd>
                             <dt>2019年07月26日</dt>
                             <dd>基本功能完成，正式上线！</dd>
                         </dl>
