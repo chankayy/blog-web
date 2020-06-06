@@ -62,10 +62,12 @@
                                         <p class=" animated zoomIn" style="text-align:center;">FRANXX是一个由JavaEE开发的个人博客网站，诞生于2019年5月20日。</p>
                                         <h1>第一个版本</h1>
                                         <p class=" animated bounceInUp">只有后台程序</p>
-                                        <h1>第一个版本</h1>
+                                        <h1>第二个版本</h1>
                                         <p class=" animated bounceInUp">前台后台程序基本完成</p>
-                                        <h1>当前版本</h1>
+                                        <h1>第三个版本</h1>
                                         <p class=" animated bounceInUp">前台评论和留言功能完成！ </p>
+                                        <h1>当前版本</h1>
+                                        <p class=" animated bounceInUp">k8s全自动构建部署 ^_^ ！ </p>
                                         <h1 style="text-align:center;">The End</h1>
                                     </div>
                                 </fieldset>
