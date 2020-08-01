@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>🍓🍓</title>
+    <title>Designed For 🍓ちゃん</title>
     
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -9,7 +9,7 @@
 
 </head>
 <body style="overflow-y:hidden;">
-<img src="/images/Absolutely.jpg" id="heade_image" onclick="window.location.href='home';">
+<img src="/images/strawberry.jpg" id="heade_image" onclick="window.location.href='home';">
 <canvas id="sakura" width="1536" height="744"></canvas><!--<canvas id="sakura" width="1536" height="744"></canvas>-->
 <script id="sakura_point_vsh" type="x-shader/x_vertex">
     uniform mat4 uProjection;
