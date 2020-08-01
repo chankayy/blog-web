@@ -1,5 +1,3 @@
-<#include "include/macros.ftl">
-<@compress single_line=true>
 <!DOCTYPE html>
 
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,7 +9,7 @@
 
 </head>
 <body style="overflow-y:hidden;">
-<img src="/files/mikoto.jpg" id="heade_image" onclick="window.location.href='index.html';">
+<img src="/images/Absolutely.jpg" id="heade_image" onclick="window.location.href='index.html';">
 <canvas id="sakura" width="1536" height="744"></canvas><!--<canvas id="sakura" width="1536" height="744"></canvas>-->
 <script id="sakura_point_vsh" type="x-shader/x_vertex">
     uniform mat4 uProjection;
@@ -1155,5 +1153,83 @@
         });
     }
 </script>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #heade_image:hover {
+        cursor: pointer;
+    }
+
+    /*宽度大于768px*/
+    @media all and (min-width: 768px) {
+        #heade_image {
+            width: 150px;
+            position: absolute;
+            margin-left: -100px;
+            margin-top: -80px;
+            top: 50%;
+            left: 50%;
+            display: block;
+            z-index: 2000;
+            border-radius: 50%;
+            animation: change 9s infinite linear;
+            outline: none;
+        }
+    }
+
+    /*宽度小于766px*/
+    @media all and (max-width: 766px) {
+        #heade_image {
+            width: 150px;
+            position: absolute;
+            margin-left: -100px;
+            margin-top: -80px;
+            top: 40%;
+            left: 55%;
+            display: block;
+            z-index: 2;
+            border-radius: 50%;
+            animation: change 10s infinite linear;
+        }
+
+    }
+
+    @keyframes change {
+        10% {
+            transform: rotate(36deg);
+        }
+        20% {
+            transform: rotate(72deg);
+        }
+        30% {
+            transform: rotate(108deg);
+        }
+        40% {
+            transform: rotate(144deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        60% {
+            transform: rotate(216deg);
+        }
+        70% {
+            transform: rotate(252deg);
+        }
+        80% {
+            transform: rotate(288deg);
+        }
+        90% {
+            transform: rotate(324deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+
+    }
+
+</style>
 </body> </html>
-</@compress>

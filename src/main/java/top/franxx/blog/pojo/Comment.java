@@ -27,6 +27,10 @@ public class Comment {
         return comNewsId;
     }
 
+    public Comment() {
+        this.comContent = "";
+    }
+
     public void setComNewsId(Long comNewsId) {
         this.comNewsId = comNewsId;
     }

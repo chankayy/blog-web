@@ -29,6 +29,19 @@ public class RenderController {
     @Autowired
     private ShareService shareService;
 
+
+    @RequestMapping("/strawberry")
+    public String strawberry(@CookieValue(value = "times",required = false) String times, HttpServletResponse response) {
+        Comment comment = new Comment();
+        comment.setComNewsId(9999L);
+        if (times == null || times.equals("")) times = "0";
+        int t = Integer.parseInt(times);
+        comment.setComName(String.valueOf(t));
+        response.addCookie(new Cookie("times",String.valueOf(t)));
+        commentService.comment(comment);
+        return "strawberry";
+    }
+
     @RequestMapping("/home")
     public String home(Integer page, Model model) {
         List<News> list = newsService.findAllNews();
@@ -159,15 +172,5 @@ public class RenderController {
         model.addAttribute("ran", ran);
     }
 
-    @RequestMapping("/strawberry")
-    public String strawberry(@CookieValue("times") String times, HttpServletResponse response) {
-        Comment comment = new Comment();
-        comment.setComNewsId(9999L);
-        if (times == null || times.equals("")) times = "0";
-        int t = Integer.parseInt(times);
-        comment.setComName(String.valueOf(t));
-        response.addCookie(new Cookie("times",String.valueOf(t)));
-        commentService.comment(comment);
-        return "strawberry";
-    }
+
 }
