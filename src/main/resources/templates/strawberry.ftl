@@ -1,3 +1,5 @@
+<#include "include/macros.ftl">
+<@compress single_line=true>
 <!DOCTYPE html>
 
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -1154,3 +1156,4 @@
     }
 </script>
 </body> </html>
+</@compress>
