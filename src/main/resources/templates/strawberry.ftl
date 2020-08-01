@@ -1133,7 +1133,7 @@
 
 
 </script>
-<audio id="bgmusic" src="http://mp32.9ku.com/upload/128/2020/05/08/1004093.mp3" autoplay preload></audio>
+<audio id="bgmusic" src="http://mp32.9ku.com/upload/128/2020/07/01/10" autoplay preload></audio>
 <!-- 当使用方法1时必须加载 JS-SDK 的 JS 文件, 方法2不需要加载这个 JS -->
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>

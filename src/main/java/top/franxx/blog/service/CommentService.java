@@ -35,4 +35,11 @@ public interface CommentService {
      * @return
      */
     BlogResult comment(Comment comment);
+
+    /**
+     * 更新评论
+     * @param comment
+     * @return
+     */
+    BlogResult updateComment(Comment comment);
 }

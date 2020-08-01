@@ -71,4 +71,15 @@ public class CommentServiceImpl implements CommentService {
         commentMapper.insert(comment);
         return BlogResult.ok();
     }
+
+    @Override
+    public BlogResult updateComment(Comment comment) {
+        if (comment==null){
+            return BlogResult.build(400,"评论失败");
+        }
+        comment.setComImg("http://image.franxx.top/images/visitor.jpg");
+        comment.setComTime(new Date());
+        commentMapper.updateByPrimaryKey(comment);
+        return BlogResult.ok();
+    }
 }
