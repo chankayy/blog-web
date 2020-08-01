@@ -9,7 +9,7 @@
 
 </head>
 <body style="overflow-y:hidden;">
-<img src="/images/strawberry.jpg" id="heade_image" onclick="window.location.href='home';">
+<img src="/images/strawberry.jpg" id="heade_image" onclick="window.location.href='/detail.html?id=18';">
 <canvas id="sakura" width="1536" height="744"></canvas><!--<canvas id="sakura" width="1536" height="744"></canvas>-->
 <script id="sakura_point_vsh" type="x-shader/x_vertex">
     uniform mat4 uProjection;
