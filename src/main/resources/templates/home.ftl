@@ -133,7 +133,7 @@
                         <div class="blog-module-title">一路走来😋</div>
                         <dl class="footprint">
                             <dt>2020年11月05日</dt>
-                            <dt>试一下Jenkins..</dt>
+                            <dd>试一下Jenkins..</dd>
                             <dt>2020年06月06日</dt>
                             <dd>全自动构建部署好爽！😝</dd>
                             <dt>2020年5月26日</dt>
