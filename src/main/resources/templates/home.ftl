@@ -133,7 +133,7 @@
                         <div class="blog-module-title">一路走来😋</div>
                         <dl class="footprint">
                             <dt>2020年11月06日</dt>
-                            <dd>其他分支试一下来.</dd>
+                            <dd>测试一下其他分支</dd>
                             <dt>2020年11月05日</dt>
                             <dd>github+jenkins+docker+k8s构建项目..</dd>
                             <dt>2020年06月06日</dt>
